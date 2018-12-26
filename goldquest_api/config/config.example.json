@@ -1,0 +1,34 @@
+{
+  "environment": "development",
+  "urlBase": "/",
+  "db": {
+    "username": "root",
+    "password": "root",
+    "database": "gq_core",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "development": {
+    "username": "root",
+    "password": null,
+    "database": "gq_core",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "version": "1.2.3",
+  "keys": [{
+    "alg": "RS256",
+    "e": "AQAB",
+    "kid": "zFar0FpuWgT9A41Dosjfppz9u7xjckCY/Z+WhfbCaJM=",
+    "kty": "RSA",
+    "n": "taG1H9QgRb8fdojDzwG2m7GLGf2p5iXIwpYyYt-sURVX_JAMGrcFEHOUw5z3MHBWHatA38NJMq23TalBJO9EIcpqPQCeFduTjpdKmRRZJOGQJ7Dql0dyOeOf4qRTzi94FixYDVjJnbruZYQg02aDS7LosBT0kL8aDVibYNF9qkcRdFGMj4RSzU_ev0kcMDT4hiQ1nR_Fc-9chxrYyNdlst8L-CT2fl0-ScpapRq8etd0Cz3C0EJGo51EUY3cfxxbA7Nep8xDK4DmJLuMWOhqQzfblG8syv3jZSwBdx4aULGyK52yhT-T2Ma4ntHu99J5AQLOQ0PYk-eYsyaX6N_2nw",
+    "use": "sig"
+  }, {
+    "alg": "RS256",
+    "e": "AQAB",
+    "kid": "FMh9tX0DdZxRVoliUG8BHFrVwn3a3177p01LQplvO4g=",
+    "kty": "RSA",
+    "n": "wXBqAkK-14dzbFDQ3UYtTZVyOYN5vBi8gOZRx5IuSA9v4lcTYkjodEKkjoGeDfK5VQzY57AVK5-151JsN07m5swyXqHFhjS2ahoIICRBPOESOoSX8t13Du4NH1wBrvCeMddtJDNjBinZa--Efs6EeB45donkyCmtFyvyI4yjZc1IzF4zqXqPVreigNase1tWDXlundSHWxk4LTykk7RpfAKf2nF1mCO-QtuJjWF7T-S3SG3KCTodCc8hlfXMX1vox29vUVJP8BR9E2csFtwpSW7DjBbaDxE5wW-qezdmAy8B_oooFlN1wihh2hDcHVhS-l1ubR0WKCadV0A5A4Hrew",
+    "use": "sig"
+  }]
+}

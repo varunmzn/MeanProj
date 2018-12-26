@@ -1,0 +1,33 @@
+#buy,
+#sell {
+    .item-row {
+      padding-bottom: 10px;
+      padding-left: 8px;
+    }
+    .metal {
+        margin: 1px 5px 0 0;
+    }
+    .count {
+        padding-right: 25px;
+        color: #666;
+    }
+    .payout {
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .total {
+        font-size: 30px;
+        padding-left: 30px;
+    }
+    .remove-btn {
+        position: absolute;
+        margin-left: -18px;
+        margin-top: -30px;
+        &:hover {
+            opacity: 1;
+        }
+    }
+    .btn+.btn {
+        margin-left: 10px;
+    }
+}

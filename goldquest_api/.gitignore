@@ -1,0 +1,5 @@
+node_modules
+config.json
+version.json
+.DS_Store
+_build/*

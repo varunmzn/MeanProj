@@ -1,0 +1,155 @@
+[{
+    "id": 1,
+    "name": "gold",
+    "options": [{
+        "id": 1,
+        "name": "8k",
+        "purity": 0.333
+      },
+      {
+        "id": 2,
+        "name": "9k",
+        "purity": 0.376
+      },
+      {
+        "id": 3,
+        "name": "10k",
+        "purity": 0.417
+      },
+      {
+        "id": 4,
+        "name": "14k",
+        "purity": 0.585
+      },
+      {
+        "id": 5,
+        "name": "15k",
+        "purity": 0.625
+      },
+      {
+        "id": 6,
+        "name": "18k",
+        "purity": 0.75
+      },
+      {
+        "id": 7,
+        "name": "20k",
+        "purity": 0.834
+      },
+      {
+        "id": 8,
+        "name": "22k",
+        "purity": 0.916
+      },
+      {
+        "id": 9,
+        "name": "23k",
+        "purity": 0.9583
+      },
+      {
+        "id": 10,
+        "name": "24k",
+        "purity": 0.999
+      }
+    ]
+  }, {
+    "id": 2,
+    "name": "silver",
+    "options": [{
+        "id": 20,
+        "name": "35%",
+        "purity": 0.35
+      },
+      {
+        "id": 21,
+        "name": "40%",
+        "purity": 0.4
+      },
+      {
+        "id": 22,
+        "name": "80%",
+        "purity": 0.8
+      },
+      {
+        "id": 23,
+        "name": "83%",
+        "purity": 0.83
+      },
+      {
+        "id": 24,
+        "name": "87.5%",
+        "purity": 0.875
+      },
+      {
+        "id": 25,
+        "name": "90%",
+        "purity": 0.9
+      },
+      {
+        "id": 26,
+        "name": "91.66%",
+        "purity": 0.9166
+      },
+      {
+        "id": 27,
+        "name": "92.5%",
+        "purity": 0.925
+      },
+      {
+        "id": 28,
+        "name": "94.79%",
+        "purity": 0.8
+      },
+      {
+        "id": 29,
+        "name": "95%",
+        "purity": 0.95
+      },
+      {
+        "id": 30,
+        "name": "95.84%",
+        "purity": 0.9584
+      },
+      {
+        "id": 31,
+        "name": "99.9%",
+        "purity": 0.999
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "platinum",
+    "options": [{
+        "id": 40,
+        "name": "60%",
+        "purity": 0.60
+      },
+      {
+        "id": 41,
+        "name": "75%",
+        "purity": 0.75
+      },
+      {
+        "id": 42,
+        "name": "80%",
+        "purity": 0.8
+      },
+      {
+        "id": 43,
+        "name": "85%",
+        "purity": 0.8
+      },
+      {
+        "id": 44,
+        "name": "90%",
+        "purity": 0.9
+      },
+      {
+        "id": 45,
+        "name": "99.9%",
+        "purity": 0.999
+      }
+    ]
+  }
+]

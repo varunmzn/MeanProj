@@ -1,0 +1,18 @@
+[{
+        "id": 3,
+        "name": "Jack Hunt Gold & Silver",
+        "address": "2746 Delaware Ave\nBuffalo, NY 14217",
+        "phone": "(716) 874-7777"
+    }, {
+        "id": 3,
+        "name": "The Gold Exchange",
+        "address": "2468 Niagara Falls Blvd\nTonawanda, NY 14150",
+        "phone": "(716) 860-8883"
+    },
+    {
+        "id": 4,
+        "name": "Gold Refinement Services, LTD",
+        "address": "One Seneca Tower 28th Floor\nBuffalo, NY 14203",       
+        "phone": "800-237-0755"
+    }
+]

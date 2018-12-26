@@ -1,0 +1,73 @@
+{
+    "item_options": [
+        "Anklet",
+        "Bracelet",
+        "Bullion",
+        "Chain",
+        "Charm",
+        "Class Ring",
+        "Coin",
+        "Cuff Links",
+        "Dental",
+        "Earring",
+        "Money Clip",
+        "Necklace",
+        "Pendant",
+        "Pin",
+        "Ring - Men's ",
+        "Ring - Women's",
+        "Scrap",
+        "Watch"
+    ],
+    "ident_options": [
+        "Driver's License",
+        "State ID",
+        "Passport",
+        "Military ID"
+    ],
+    "month_options": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+    ],
+    "gender_options": ["Male", "Female"],
+    "haircolor_options": [
+        "Black",
+        "Blond",
+        "Brown",
+        "Brunette",
+        "Strawberry Blond",
+        "Red/Auburn",
+        "Colored",
+        "Bald",
+        "Other"
+    ],
+    "eyecolor_options": [
+        "Blue",
+        "Brown",
+        "Dark Brown",
+        "Green",
+        "Grey",
+        "Hazel"
+    ],
+    "ethnicity_options": [
+        "African/Black",
+        "European/White",
+        "Native American",
+        "Asian",
+        "Hispanic",
+        "Pacific Islander",
+        "Middle Eastern",
+        "Mixed",
+        "Other"
+    ]
+}
