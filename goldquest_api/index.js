@@ -39,51 +39,50 @@ app.use('/version', (req, res, next) => {
     res.end();
 });
 
-app.use(bearerToken());
-app.use((req, res, next) => {
-  console.log("Hello");
-    if (req.app.get('env') === 'test') {
-      next();
-      return;
-    }
-    const token = req.token;
-    if (!token) {
-      const error = new Error('Unauthorized');
-      error.status = 401;
-      next(error);
-      return;
-    }
-    const sections = token.split('.');
-    const header = jose.util.base64url.decode(sections[0]);
-    const parsed = JSON.parse(header);
-    const kid = parsed.kid;
-    const keys = jwks.keys;
-    const key = keys.find(k => k.kid === kid);
-    if (!key) {
-      const error = new Error('Unauthorized');
-      error.status = 401;
-      next(error);
-      return;
-    }
-    jose.JWK.asKey(key).then(result => {
-      return jose.JWS.createVerify(result)
-        .verify(token);
-    }).then(result => {
-      const claims = JSON.parse(result.payload);
-      const now = Math.floor(new Date() / 1000);
-      if (now > claims.exp) {
-        const error = new Error('Unauthorized');
-        error.status = 401;
-        next(error);
-        return;
-      }
-      res.locals.auth = claims;
-      next();
-    }).catch(err => {
-      err.status = 401;
-      next(err);
-    });
-  });
+// app.use(bearerToken());
+// app.use((req, res, next) => {
+//     if (req.app.get('env') === 'test') {
+//       next();
+//       return;
+//     }
+//     const token = req.token;
+//     if (!token) {
+//       const error = new Error('Unauthorized');
+//       error.status = 401;
+//       next(error);
+//       return;
+//     }
+//     const sections = token.split('.');
+//     const header = jose.util.base64url.decode(sections[0]);
+//     const parsed = JSON.parse(header);
+//     const kid = parsed.kid;
+//     const keys = jwks.keys;
+//     const key = keys.find(k => k.kid === kid);
+//     if (!key) {
+//       const error = new Error('Unauthorized');
+//       error.status = 401;
+//       next(error);
+//       return;
+//     }
+//     jose.JWK.asKey(key).then(result => {
+//       return jose.JWS.createVerify(result)
+//         .verify(token);
+//     }).then(result => {
+//       const claims = JSON.parse(result.payload);
+//       const now = Math.floor(new Date() / 1000);
+//       if (now > claims.exp) {
+//         const error = new Error('Unauthorized');
+//         error.status = 401;
+//         next(error);
+//         return;
+//       }
+//       res.locals.auth = claims;
+//       next();
+//     }).catch(err => {
+//       err.status = 401;
+//       next(err);
+//     });
+//   });
 
 
 // middleware
