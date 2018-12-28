@@ -134,13 +134,15 @@ const routes: Routes = [
     path: 'login1',
     loadChildren: './+login/login.module#LoginModule',
     data: {
-      customLayout: true
+      // customLayout: true,
+      layoutName:'default'
     }
   }, {
     path: 'register1',
     loadChildren: './+register/register.module#RegisterModule',
     data: {
-      customLayout: true
+      // customLayout: true,
+      layoutName:'default'
     }
   },
 
@@ -148,7 +150,17 @@ const routes: Routes = [
     path: 'login',
     loadChildren: './user/sign-in/sign-in.module#SignInModule',
     data: {
-      customLayout: true
+      // customLayout: true,
+      layoutName:'default'
+    }
+  },
+
+  {
+    path: 'signup',
+    loadChildren: './user/sign-up/sign-up.module#SignUpModule',
+    data: {
+      // customLayout: true,
+      layoutName:'layoutTwo'
     }
   },
 
@@ -163,10 +175,11 @@ const routes: Routes = [
   //       children: [{ path: '', component: SignInComponent }]
   //   },
     {
-      path: 'welcome', component: WelcomeComponent,
+      path: 'welcome', component: WelcomeComponent,canActivate:[AuthGuard],
       children: [{ path: '', component: WelcomeComponent }],
       data: {
-        customLayout: false
+        customLayout: false,
+        layoutName: 'layoutOne'
       }
   },
     {

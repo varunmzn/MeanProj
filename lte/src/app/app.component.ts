@@ -7,15 +7,17 @@ import { LayoutService } from 'angular-admin-lte';
 })
 export class AppComponent implements OnInit {
   public customLayout: boolean;
+  public layoutName: string;
 
   constructor(
     private layoutService: LayoutService
   ) {}
 
   ngOnInit() {
-    this.layoutService.isCustomLayout.subscribe((value: boolean) => {
-      this.customLayout = value;
-    });
+    this.layoutService.isCustomLayout.subscribe((value: any) => {
+      this.customLayout = value.customLayout;
+      this.layoutName = value.layoutName;
+        });
   }
 }
 
@@ -29,3 +31,4 @@ export class AppComponent implements OnInit {
 // export class AppComponent {
 //   title = 'app';
 // }
+

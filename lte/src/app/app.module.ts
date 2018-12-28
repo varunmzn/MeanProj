@@ -19,7 +19,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 // components
 import { UserComponent } from './user/user.component';
-import { SignUpComponent } from './user/sign-up/sign-up.component';
+// import { SignUpComponent } from './user/sign-up/sign-up.component';
 //routes
 import { UserProfileComponent } from './user-profile/user-profile.component';
 // import { SignInComponent } from './user/sign-in/sign-in.component';
@@ -44,7 +44,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
     AppComponent,
     HomeComponent,
     UserComponent,
-    SignUpComponent,
+    // SignUpComponent,
     UserProfileComponent,
     // SignInComponent,
     WelcomeComponent

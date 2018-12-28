@@ -9,7 +9,57 @@ export const adminLteConf = {
   // isSidebarRightOverContent: true,
   // layout: 'normal',
   sidebarLeftMenu: [
+    
     {label: 'MAIN NAVIGATION', separator: true},
+
+    {label: 'Dashboard', route: 'accordion', iconClasses: 'fa fa-tasks'},
+
+    {label: 'Masters', iconClasses: 'fa fa-th-list', children: [
+
+     {label: 'User Management', iconClasses: 'fa fa-th-list', children: [
+        {label: 'User', route: 'layout/configuration'},
+      ]},
+      {label: 'Assessment Management', iconClasses: 'fa fa-th-list', children: [
+        {label: 'Assessment', route: 'layout/configuration'},
+      ]},
+      {label: 'Subject  Management', iconClasses: 'fa fa-th-list', children: [
+        {label: 'Subject', route: 'layout/configuration'},
+      ]},
+      {label: 'Question  Management', iconClasses: 'fa fa-th-list', children: [
+        {label: 'Question', route: 'layout/configuration'},
+      ]},
+]},
+
+      {label: 'Associations', iconClasses: 'fa fa-th-list', children: [
+
+      {label: 'Subject Question Assoc', route: 'layout/configuration'},
+      {label: 'Assessment Subject Assoc', route: 'layout/configuration'},
+      ]},
+
+      {label: 'Assignment',iconClasses: 'fa fa-th-list', children: [
+
+      {label: 'Assign To User', route: 'layout/configuration' },
+    ]},
+    
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+{label: '', separator: true},
+{label: '', separator: true},
+{label: '', separator: true},
+{label: '', separator: true},
+{label: '', separator: true},
+{label: '', separator: true},
+{label: '', separator: true},
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
     {label: 'Get Started', route: '/', iconClasses: 'fa fa-road', pullRights: [{text: 'New', classes: 'label pull-right bg-green'}]},
     {label: 'Layout', iconClasses: 'fa fa-th-list', children: [
         {label: 'Configuration', route: 'layout/configuration'},
