@@ -3,6 +3,7 @@ const passport = require('passport');
 const _ = require('lodash');
 
 const User = mongoose.model('User');
+const Users = mongoose.model('Users');
 
 module.exports.register = (req, res, next) => {
     var user = new User();
@@ -20,6 +21,101 @@ module.exports.register = (req, res, next) => {
         }
 
     });
+}
+
+
+module.exports.createUser = (req, res, next) => {
+    var users = new Users();
+    console.log("Hello")
+    console.log(req.body.firstName)
+    users.firstName=req.body.firstName;
+    users.lastName=req.body.lastName;
+    users.email=req.body.email;
+    users.password=req.body.password;
+    users.mobile=req.body.mobile;
+    users.gender=req.body.gender;
+    users.age=req.body.age;
+    users.save((err, doc) => {
+        if (!err)
+            res.send(doc);
+        else {
+            if (err.code == 11000)
+                res.status(422).send(['Duplicate email adrress found.']);
+            else
+                return next(err);
+        }
+
+    });
+}
+module.exports.getUser = (req, res, next) => {
+    let query = { };
+     Users.find(query,(err,result)=>{
+    if(!err){
+        res.send(result);
+    } else {
+            return next(err);
+    }
+  });
+}
+
+module.exports.getUserById = (req, res, next) => {
+    let query = req.body.id ;
+     Users.findById(query,(err,result)=>{
+         console.log(result)
+    if(!err){
+        res.send(result);
+    } else {
+            return next(err);
+    }
+  });
+}
+
+module.exports.updateUser = (req, res, next) => {
+    let query = req.body.id   ;
+    Users.update({"_id" : query}, { firstName: 'jason bourne' }, (err,result)=>{
+         console.log(result)
+    if(!err){
+        res.send(result);
+    } else {
+            return next(err);
+    }
+  });
+}
+
+module.exports.updateMoreUser = (req, res, next) => {
+    let query = req.body.firstName  ;
+    Users.update({"firstName" : query}, { firstName: 'Varun' },{'multi':true}, (err,result)=>{
+         console.log(result)
+    if(!err){
+        res.send(result);
+    } else {
+            return next(err);
+    }
+  });
+}
+
+module.exports.deleteUser = (req, res, next) => {
+    let query = req.body.id   ;
+    Users.deleteOne({"_id" : query}, (err,result)=>{
+         console.log(result)
+    if(!err){
+        res.send(result);
+    } else {
+            return next(err);
+    }
+  });
+}
+
+module.exports.deleteMoreUser = (req, res, next) => {
+    let query = req.body.firstName ;
+    Users.deleteMany({"firstName" : query}, (err,result)=>{
+         console.log(result)
+    if(!err){
+        res.send(result);
+    } else {
+            return next(err);
+    }
+  });
 }
 
 module.exports.authenticate = (req, res, next) => {

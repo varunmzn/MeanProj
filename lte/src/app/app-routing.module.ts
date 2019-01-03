@@ -7,6 +7,8 @@ import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { AddUserComponent } from './user-master/add-user/add-user.component';
+import { ListUserComponent } from './user-master/list-user/list-user.component';
 import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
@@ -178,7 +180,7 @@ const routes: Routes = [
       path: 'welcome', component: WelcomeComponent,canActivate:[AuthGuard],
       children: [{ path: '', component: WelcomeComponent }],
       data: {
-        customLayout: false,
+        // customLayout: false,
         layoutName: 'layoutOne'
       }
   },
@@ -188,6 +190,22 @@ const routes: Routes = [
     {
         path: '', redirectTo: '/login', pathMatch: 'full'
     },
+
+  {
+    path: 'listuser', component: ListUserComponent, canActivate: [AuthGuard],
+    children: [{ path: '', component: ListUserComponent }],
+    data: {
+      layoutName: 'layoutOne'
+    },
+  },
+
+  {
+    path: 'adduser', component: AddUserComponent, canActivate: [AuthGuard],
+    children: [{ path: '', component: AddUserComponent }],
+    data: {
+      layoutName: 'layoutOne'
+    },
+  }
     
 ];
 

@@ -1,0 +1,113 @@
+import { Component, OnInit } from '@angular/core';  
+import { FormBuilder, FormGroup, FormControl,Validators, NgForm } from "@angular/forms";  
+import { UsersService } from '../../services/users/users-service.service';  
+import { Router } from "@angular/router";  
+
+
+
+
+@Component({
+  selector: 'app-add-user',
+  templateUrl: './add-user.component.html',
+  styleUrls: ['./add-user.component.css']
+})
+
+
+
+export class AddUserComponent implements OnInit {
+  model: any = {};
+  registerForm: FormGroup;
+  submitted = false;
+  userformlabel: string = 'Add User';  
+  userformbtn: string = 'Save';  
+  constructor(private formBuilder: FormBuilder, private router: Router, private UsersService: UsersService) {  
+  }  
+
+  
+  // addForm: FormGroup;  
+  btnvisibility: boolean = true;  
+  ngOnInit() { 
+    this.registerForm = new FormGroup ({
+      firstName: new FormControl(null, [Validators.required]),
+      lastName: new FormControl(null, [Validators.required]),
+      email:  new FormControl(null, [Validators.required,Validators.email]),
+      password:  new FormControl(null, [Validators.required,Validators.minLength(6)]),
+      mobile:  new FormControl(null, [Validators.required,Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]),
+      gender: new FormControl(null, [Validators.required]),
+      age:  new FormControl(null, [Validators.required]),
+    });
+   
+    
+    this.registerForm.patchValue({age:47,email:"varun@gmailom",firstName:"Varun",gender:"male",lastName:"Bhardwaj",
+    mobile:"1234567890",password:"123456"});
+    // this.registerForm.get('age').setValue(47);
+
+
+  //   this.registerForm = this.formBuilder.group({
+  //     firstName: ['', Validators.required,Validators.email]
+  //     // lastName: ['', Validators.required],
+  //     // email: ['', [Validators.required, Validators.email]],
+  //     // password: ['', [Validators.required, Validators.minLength(6)]],
+  //     // mobile: ['', Validators.required],
+  //     // gender: ['', Validators.required],
+  //     // age: ['', Validators.required]
+  // })
+  
+  
+    // this.addForm = this.formBuilder.group({  
+    //   id: [],  
+    //   user_name: ['', Validators.required],  
+    //   user_salary: ['', [Validators.required, Validators.maxLength(9)]],  
+    //   user_age: ['', [Validators.required, Validators.maxLength(3)]]  
+    // });  
+  
+    // let userid = localStorage.getItem('editEmpId');  
+    // if (+userid > 0) {  
+    //   this.userService.getUserById(+userid).subscribe(data => {  
+    //     this.addForm.patchValue(data);  
+    //   })  
+    //   this.btnvisibility = false;  
+    //   this.userformlabel = 'Edit User';  
+    //   this.userformbtn = 'Update';  
+    // }  
+  }  
+  // onSubmit() {  
+  //   console.log('Create fire');  
+  //   this.UsersService.createUser(this.addForm.value)  
+  //     .subscribe(data => {  
+  //       this.router.navigate(['list-user']);  
+  //     },  
+  //     error => {  
+  //       alert(error);  
+  //     });  
+  // }  
+  onUpdate() {  
+    // console.log('Update fire');  
+    // this.userService.updateUser(this.addForm.value).subscribe(data => {  
+    //   this.router.navigate(['list-user']);  
+    // },  
+    //   error => {  
+    //     alert(error);  
+    //   });  
+  }  
+  // get f() { return this.registerForm.controls; }
+
+  onSubmit(form :NgForm) {
+    this.submitted = true;
+    console.log(form.value)
+    alert (this.registerForm.invalid)
+    this.UsersService.createUser(form.value)
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+        return;
+    }
+
+
+
+    
+}
+showErr (err) {
+  return err.email || false;
+}
+
+}

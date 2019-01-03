@@ -17,7 +17,7 @@ export const adminLteConf = {
     {label: 'Masters', iconClasses: 'fa fa-th-list', children: [
 
      {label: 'User Management', iconClasses: 'fa fa-th-list', children: [
-        {label: 'User', route: 'layout/configuration'},
+        {label: 'User', route: '/listuser'},
       ]},
       {label: 'Assessment Management', iconClasses: 'fa fa-th-list', children: [
         {label: 'Assessment', route: 'layout/configuration'},

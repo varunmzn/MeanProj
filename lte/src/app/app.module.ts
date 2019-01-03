@@ -14,7 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { LoadingPageModule, MaterialBarModule } from 'angular-loading-page';
 
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 // components
@@ -24,10 +24,13 @@ import { UserComponent } from './user/user.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 // import { SignInComponent } from './user/sign-in/sign-in.component';
 import { UserService } from './shared/user.service';
+import { UsersService } from './services/users/users-service.service';
 //other
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { ListUserComponent } from './user-master/list-user/list-user.component';
+import { AddUserComponent } from './user-master/add-user/add-user.component';
 
 @NgModule({
   imports: [
@@ -36,7 +39,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
     CoreModule,
     LayoutModule.forRoot(adminLteConf),
     LoadingPageModule, MaterialBarModule,
-
+    ReactiveFormsModule,
     FormsModule,
     HttpClientModule
   ],
@@ -47,13 +50,18 @@ import { WelcomeComponent } from './welcome/welcome.component';
     // SignUpComponent,
     UserProfileComponent,
     // SignInComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    ListUserComponent,
+    AddUserComponent,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-  },AuthGuard,UserService],
+  },AuthGuard,
+  UserService,
+  UsersService
+],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

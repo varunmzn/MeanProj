@@ -1,0 +1,77 @@
+<div class="jumbotron">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 offset-md-3">
+              <h3>Add User</h3>
+              <form  [formGroup]="registerForm" novalidate>
+                  <div class="form-group">
+                      <label for="firstName">First Name</label>
+                      <input class="form-control" formControlName="firstName" [ngClass]="{ 'is-invalid':registerForm.controls.firstName.invalid }" />
+                      <div *ngIf="registerForm.controls.firstName.invalid" class="invalid-feedback" >
+                          <div *ngIf="registerForm.controls.firstName.errors.required">First Name is required</div>
+                      </div>
+                  </div>
+
+                  
+                 <div class="form-group">
+                      <label for="lastName">Last Name</label>
+                      <input class="form-control" formControlName="lastName" [ngClass]="{ 'is-invalid':registerForm.controls.lastName.invalid }" />
+                      <div *ngIf="registerForm.controls.lastName.invalid" class="invalid-feedback" >
+                          <div *ngIf="registerForm.controls.lastName.errors.required">Last Name is required</div>
+                      </div>
+                  </div>
+                  
+                   <div class="form-group">
+                      <label for="email">Email</label>
+                      <input class="form-control" formControlName="email" [ngClass]="{ 'is-invalid':registerForm.controls.email.invalid }" />
+                      <div *ngIf="registerForm.controls.email.invalid" class="invalid-feedback" >
+                          <div *ngIf="registerForm.controls.email.errors.required">Email is required</div>
+                          <div *ngIf="registerForm.controls.email.errors.email">Email format is required</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="password">Password</label>
+                      <input class="form-control" formControlName="password" [ngClass]="{ 'is-invalid':registerForm.controls.password.invalid }" />
+                      <div *ngIf="registerForm.controls.password.invalid" class="invalid-feedback" >
+                          <div *ngIf="registerForm.controls.password.errors.required">Password is required</div>
+                          <div *ngIf="registerForm.controls.password.errors.minlength">Minimum 6 characters are required</div>
+                      </div>
+                  </div>
+                 <div class="form-group">
+                    <label for="mobile">mobile</label>
+                    <input class="form-control" formControlName="mobile" [ngClass]="{ 'is-invalid':registerForm.controls.mobile.invalid }" />
+                    <div *ngIf="registerForm.controls.mobile.invalid" class="invalid-feedback" >
+                        <div *ngIf="registerForm.controls.mobile.errors.required">Mobile number is required</div>
+                        <div *ngIf="registerForm.controls.mobile.errors.pattern">10 digits are required</div>
+                    </div>
+                </div>
+                 <div class="form-group">
+                  <label for="gender">gender</label> &nbsp;
+                  <input type="radio" formControlName="gender" value="male" required> Male
+                   <input type="radio" formControlName="gender" value="female" required> Female
+                      <div *ngIf="registerForm.controls.gender.invalid" class="invalid-feedback" >
+                          <div *ngIf="registerForm.controls.gender.errors.required">Gender is required</div>
+                      </div>
+              </div>
+              <div class="form-group">
+                <label for="age">Age</label>
+                <select  formControlName="age" [ngClass]="{ 'is-invalid':registerForm.controls.age.invalid }" class="form-control">
+                    <option [ngValue]='' >Select</option>
+                  <option [ngValue]='47'>47</option>
+                  <option [ngValue]='46'>46</option>
+                  <option [ngValue]='45'>45</option>
+                </select>
+                <div *ngIf="registerForm.controls.age.invalid" class="invalid-feedback">
+                  <div *ngIf="registerForm.controls.age.errors.required">Age is required</div>
+                </div>
+              </div>
+
+                  <div class="form-group">
+                      <button [disabled]="!registerForm.valid" (click)="onSubmit(registerForm)" class="btn btn-primary">Add</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+
