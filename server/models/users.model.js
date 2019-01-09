@@ -29,7 +29,7 @@ var usersSchema = new mongoose.Schema({
         required: 'Gender can\'t be empty',
     },
     age: {
-        type: String,
+        type: Number,
         required: 'Age can\'t be empty',
     },
 });

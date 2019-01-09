@@ -32,6 +32,10 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { ListUserComponent } from './user-master/list-user/list-user.component';
 import { AddUserComponent } from './user-master/add-user/add-user.component';
 
+// To use material components  
+import { MatToolbarModule , MatMenuModule , MatInputModule , MatTableModule ,MatButtonModule,MatCardModule,MatTableDataSource,MatPaginatorModule,MatSortModule} from '@angular/material';  
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';  
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -41,7 +45,13 @@ import { AddUserComponent } from './user-master/add-user/add-user.component';
     LoadingPageModule, MaterialBarModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,  
+    BrowserModule,  
+    MatToolbarModule , MatMenuModule , MatInputModule , MatTableModule ,MatButtonModule,MatCardModule,MatPaginatorModule,MatSortModule  
+  ],  
+  exports:[  
+    MatToolbarModule , MatMenuModule , MatInputModule , MatTableModule ,MatButtonModule,MatCardModule,MatPaginatorModule,MatSortModule  
   ],
   declarations: [
     AppComponent,

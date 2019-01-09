@@ -26,8 +26,7 @@ module.exports.register = (req, res, next) => {
 
 module.exports.createUser = (req, res, next) => {
     var users = new Users();
-    console.log("Hello")
-    console.log(req.body.firstName)
+    // delete req.body._id;
     users.firstName=req.body.firstName;
     users.lastName=req.body.lastName;
     users.email=req.body.email;
@@ -35,7 +34,20 @@ module.exports.createUser = (req, res, next) => {
     users.mobile=req.body.mobile;
     users.gender=req.body.gender;
     users.age=req.body.age;
-    users.save((err, doc) => {
+    if(req.body._id){
+        console.log("update")
+        Users.update({"_id" : req.body._id }, req.body, (err,result)=>{
+             console.log("Updated")
+        if(!err){
+            res.send(result);
+        } else {
+                return next(err);
+        }
+      });
+    }else{
+        console.log("inserted")
+       
+         users.save((err, doc) => {
         if (!err)
             res.send(doc);
         else {
@@ -44,11 +56,13 @@ module.exports.createUser = (req, res, next) => {
             else
                 return next(err);
         }
-
-    });
+    }); 
+    }
+  
 }
 module.exports.getUser = (req, res, next) => {
-    let query = { };
+    // let query =   { fullName: { $exists: true, $nin: [ 5, 15 ] } };
+    let query =   { fullName: { $exists: false } };
      Users.find(query,(err,result)=>{
     if(!err){
         res.send(result);
@@ -59,7 +73,7 @@ module.exports.getUser = (req, res, next) => {
 }
 
 module.exports.getUserById = (req, res, next) => {
-    let query = req.body.id ;
+    let query = req.body.id ; 
      Users.findById(query,(err,result)=>{
          console.log(result)
     if(!err){
@@ -95,7 +109,7 @@ module.exports.updateMoreUser = (req, res, next) => {
 }
 
 module.exports.deleteUser = (req, res, next) => {
-    let query = req.body.id   ;
+    let query = req.params.id   ;
     Users.deleteOne({"_id" : query}, (err,result)=>{
          console.log(result)
     if(!err){

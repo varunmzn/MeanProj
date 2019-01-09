@@ -13,7 +13,7 @@ router.get('/getUser', ctrlUser.getUser);
 router.post('/getUserById', ctrlUser.getUserById);
 router.post('/updateUser', ctrlUser.updateUser);
 router.post('/updateMoreUser', ctrlUser.updateMoreUser);
-router.post('/deleteUser', ctrlUser.deleteUser);
+router.delete('/deleteUser/:id', ctrlUser.deleteUser);
 router.post('/deleteMoreUser', ctrlUser.deleteMoreUser);
 
 module.exports = router;

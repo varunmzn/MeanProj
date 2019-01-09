@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';  
 import { FormBuilder, FormGroup, FormControl,Validators, NgForm } from "@angular/forms";  
 import { UsersService } from '../../services/users/users-service.service';  
-import { Router } from "@angular/router";  
-
+import { Router,ActivatedRoute } from "@angular/router";  
+import 'rxjs/add/operator/map'
 
 
 
@@ -20,14 +20,15 @@ export class AddUserComponent implements OnInit {
   submitted = false;
   userformlabel: string = 'Add User';  
   userformbtn: string = 'Save';  
-  constructor(private formBuilder: FormBuilder, private router: Router, private UsersService: UsersService) {  
-  }  
-
+  constructor(private formBuilder: FormBuilder, private router: Router, private UsersService: UsersService,private route: ActivatedRoute) {  
+  }
   
+
   // addForm: FormGroup;  
   btnvisibility: boolean = true;  
   ngOnInit() { 
     this.registerForm = new FormGroup ({
+      _id: new FormControl(null),
       firstName: new FormControl(null, [Validators.required]),
       lastName: new FormControl(null, [Validators.required]),
       email:  new FormControl(null, [Validators.required,Validators.email]),
@@ -36,10 +37,21 @@ export class AddUserComponent implements OnInit {
       gender: new FormControl(null, [Validators.required]),
       age:  new FormControl(null, [Validators.required]),
     });
+
+    this.route.params.subscribe(params =>{
+      if (params['id']) {
+        this.UsersService.listUsers(params['id']).subscribe(success => {
+          console.log(success)
+          this.userformlabel="Edit User"
+          this.registerForm.patchValue(success);
+        }, error => {
+          console.log (error);
+        })
+      }
+   });
    
+     
     
-    this.registerForm.patchValue({age:47,email:"varun@gmailom",firstName:"Varun",gender:"male",lastName:"Bhardwaj",
-    mobile:"1234567890",password:"123456"});
     // this.registerForm.get('age').setValue(47);
 
 
@@ -71,16 +83,7 @@ export class AddUserComponent implements OnInit {
     //   this.userformbtn = 'Update';  
     // }  
   }  
-  // onSubmit() {  
-  //   console.log('Create fire');  
-  //   this.UsersService.createUser(this.addForm.value)  
-  //     .subscribe(data => {  
-  //       this.router.navigate(['list-user']);  
-  //     },  
-  //     error => {  
-  //       alert(error);  
-  //     });  
-  // }  
+  
   onUpdate() {  
     // console.log('Update fire');  
     // this.userService.updateUser(this.addForm.value).subscribe(data => {  
@@ -95,19 +98,23 @@ export class AddUserComponent implements OnInit {
   onSubmit(form :NgForm) {
     this.submitted = true;
     console.log(form.value)
-    alert (this.registerForm.invalid)
-    this.UsersService.createUser(form.value)
+    this.UsersService.createUser(form.value).subscribe((result) => {
+      //  console.log(result)
+      alert("Updated");
+      this.router.navigate(['listuser']);
+    });
+    
     // stop here if form is invalid
     if (this.registerForm.invalid) {
         return;
     }
-
-
-
-    
 }
-showErr (err) {
-  return err.email || false;
-}
+
+
+
+
+// ngOnDestroy() {
+//   this.sub.unsubscribe();
+// }
 
 }

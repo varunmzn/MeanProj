@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+
 import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
@@ -11,6 +12,9 @@ import { AddUserComponent } from './user-master/add-user/add-user.component';
 import { ListUserComponent } from './user-master/list-user/list-user.component';
 import { AuthGuard } from './auth/auth.guard';
 
+
+
+
 const routes: Routes = [
   {
   path: '',
@@ -20,8 +24,10 @@ const routes: Routes = [
   children: [
     {
       path: '',
-      component: HomeComponent
-    }, {
+      loadChildren: './user/sign-in/sign-in.module#SignInModule',
+      data: {
+        layoutName:'default'
+      }    }, {
       path: 'accordion',
       loadChildren: './+accordion/accordion.module#AccordionModule',
       data: {
@@ -197,10 +203,25 @@ const routes: Routes = [
     data: {
       layoutName: 'layoutOne'
     },
+    runGuardsAndResolvers: 'always',
+  },
+  {
+    path: 'listuser/:id', component: ListUserComponent, canActivate: [AuthGuard],
+    children: [{ path: '', component: ListUserComponent }],
+    data: {
+      layoutName: 'layoutOne'
+    },
   },
 
   {
     path: 'adduser', component: AddUserComponent, canActivate: [AuthGuard],
+    children: [{ path: '', component: AddUserComponent }],
+    data: {
+      layoutName: 'layoutOne'
+    },
+  },
+  {
+    path: 'adduser/:id', component: AddUserComponent, canActivate: [AuthGuard],
     children: [{ path: '', component: AddUserComponent }],
     data: {
       layoutName: 'layoutOne'
@@ -210,7 +231,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  imports: [RouterModule.forRoot(routes, { useHash: true,onSameUrlNavigation: 'reload' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
