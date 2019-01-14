@@ -10,6 +10,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AddUserComponent } from './user-master/add-user/add-user.component';
 import { ListUserComponent } from './user-master/list-user/list-user.component';
+import { CreateAssessComponent,ListAssessComponent } from './assessment';
 import { AuthGuard } from './auth/auth.guard';
 
 
@@ -223,6 +224,34 @@ const routes: Routes = [
   {
     path: 'adduser/:id', component: AddUserComponent, canActivate: [AuthGuard],
     children: [{ path: '', component: AddUserComponent }],
+    data: {
+      layoutName: 'layoutOne'
+    },
+  },{
+    path: 'listassessment', component: ListAssessComponent, canActivate: [AuthGuard],
+    children: [{ path: '', component: ListAssessComponent }],
+    data: {
+      layoutName: 'layoutOne'
+    },
+  },
+  {
+    path: 'listassessment/:id', component: ListAssessComponent, canActivate: [AuthGuard],
+    children: [{ path: '', component: ListAssessComponent }],
+    data: {
+      layoutName: 'layoutOne'
+    },
+  },
+
+  {
+    path: 'addassessment', component: CreateAssessComponent, canActivate: [AuthGuard],
+    children: [{ path: '', component: CreateAssessComponent }],
+    data: {
+      layoutName: 'layoutOne'
+    },
+  },
+  {
+    path: 'addassessment/:id', component: CreateAssessComponent, canActivate: [AuthGuard],
+    children: [{ path: '', component: CreateAssessComponent }],
     data: {
       layoutName: 'layoutOne'
     },

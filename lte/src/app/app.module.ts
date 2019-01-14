@@ -25,6 +25,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 // import { SignInComponent } from './user/sign-in/sign-in.component';
 import { UserService } from './shared/user.service';
 import { UsersService } from './services/users/users-service.service';
+import { AssessmentService } from './services/assessments/assessment.service';
+
 //other
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
@@ -34,7 +36,9 @@ import { AddUserComponent } from './user-master/add-user/add-user.component';
 
 // To use material components  
 import { MatToolbarModule , MatMenuModule , MatInputModule , MatTableModule ,MatButtonModule,MatCardModule,MatTableDataSource,MatPaginatorModule,MatSortModule} from '@angular/material';  
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';  
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CreateAssessComponent,ListAssessComponent } from './assessment';
+
 
 @NgModule({
   imports: [
@@ -63,6 +67,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     WelcomeComponent,
     ListUserComponent,
     AddUserComponent,
+    CreateAssessComponent,
+    ListAssessComponent
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
@@ -70,7 +76,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     multi: true
   },AuthGuard,
   UserService,
-  UsersService
+  UsersService,
+  AssessmentService
 ],
   bootstrap: [AppComponent]
 })

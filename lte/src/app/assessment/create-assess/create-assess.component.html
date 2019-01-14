@@ -1,0 +1,27 @@
+<div class="jumbotron" style="height: 1000px">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 offset-md-3">
+              <h3>{{userformlabel}}</h3>
+              <!-- <form  [formGroup]="assessmentForm"  (ngSubmit)="assessmentForm.valid && onSubmit(assessmentForm)" novalidate> -->
+                <form  [formGroup]="assessmentForm" novalidate>
+                        <input type="hidden" class="form-control" formControlName="_id" />
+             <br>
+                  <div class="form-group">
+                      <label for="firstName">Assessment Name</label>
+                      <input class="form-control" formControlName="firstName" [ngClass]="{ 'is-invalid':assessmentForm.controls.firstName.invalid }" />
+                      <div *ngIf="assessmentForm.controls.firstName.touched && assessmentForm.controls.firstName.invalid" class="invalid-feedback" >
+                          <div *ngIf="assessmentForm.controls.firstName.errors.required">First Name is required</div>
+                      </div>
+                  </div>      
+                                
+                  <div class="form-group">
+                      <!-- <button type="submit"  class="btn btn-primary">Save</button> -->
+                      <button [disabled]="!assessmentForm.valid" (click)="onSubmit(assessmentForm)" class="btn btn-primary">Save</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+

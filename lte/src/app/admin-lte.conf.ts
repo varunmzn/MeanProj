@@ -20,7 +20,7 @@ export const adminLteConf = {
         {label: 'User', route: '/listuser'},
       ]},
       {label: 'Assessment Management', iconClasses: 'fa fa-th-list', children: [
-        {label: 'Assessment', route: 'layout/configuration'},
+        {label: 'Assessment', route: '/listassessment'},
       ]},
       {label: 'Subject  Management', iconClasses: 'fa fa-th-list', children: [
         {label: 'Subject', route: 'layout/configuration'},

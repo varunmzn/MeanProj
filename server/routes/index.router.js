@@ -16,6 +16,16 @@ router.post('/updateMoreUser', ctrlUser.updateMoreUser);
 router.delete('/deleteUser/:id', ctrlUser.deleteUser);
 router.post('/deleteMoreUser', ctrlUser.deleteMoreUser);
 
+
+
+router.post('/createAssessment', ctrlUser.createAssessment);
+router.get('/getAssessment', ctrlUser.getAssessment);
+router.post('/getAssessmentById', ctrlUser.getAssessmentById);
+
+router.post('/createSubject', ctrlUser.createSubject);
+router.get('/getSubject', ctrlUser.getSubject);
+router.post('/getSubjectById', ctrlUser.getSubjectById); 
+
 module.exports = router;
 
 

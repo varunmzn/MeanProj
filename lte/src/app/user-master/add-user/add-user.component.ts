@@ -113,8 +113,4 @@ export class AddUserComponent implements OnInit {
 
 
 
-// ngOnDestroy() {
-//   this.sub.unsubscribe();
-// }
-
 }

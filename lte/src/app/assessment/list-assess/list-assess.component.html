@@ -1,0 +1,76 @@
+<mat-card>  
+  <div class="alert alert-info" style="width: 100%">  
+    <strong>Users List</strong> 
+  
+      <a [routerLink]="['/addassessment']" style="margin-left: 75%;">
+        <strong>Add User</strong> 
+      </a>
+  
+     
+    
+  </div>  
+  <div  class="example-container mat-elevation-z8">  
+      <mat-table #Table [dataSource]="MyDataSource"  matSort>  
+
+          <ng-container matColumnDef="_id">  
+              <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>  
+              <mat-cell *matCellDef="let post"> {{post._id}} </mat-cell>  
+          </ng-container>  
+
+          <ng-container matColumnDef="firstName">  
+              <mat-header-cell *matHeaderCellDef  mat-sort-header> First Name </mat-header-cell>  
+              <mat-cell *matCellDef="let post"> {{post.firstName}} </mat-cell>  
+          </ng-container>  
+
+          <ng-container matColumnDef="lastName">  
+              <mat-header-cell *matHeaderCellDef mat-sort-header> LastName </mat-header-cell>  
+              <mat-cell *matCellDef="let post"> {{post.lastName}} </mat-cell>  
+          </ng-container>  
+
+          <ng-container matColumnDef="email">  
+              <mat-header-cell *matHeaderCellDef  mat-sort-header> Email </mat-header-cell>  
+              <mat-cell *matCellDef="let post"> {{post.email}} </mat-cell>  
+          </ng-container>  
+
+            <ng-container matColumnDef="password">  
+              <mat-header-cell *matHeaderCellDef> Password </mat-header-cell>  
+              <mat-cell *matCellDef="let post"> {{post.password}} </mat-cell>  
+          </ng-container>  
+
+          <ng-container matColumnDef="mobile">  
+              <mat-header-cell *matHeaderCellDef  mat-sort-header> Mobile </mat-header-cell>  
+              <mat-cell *matCellDef="let post"> {{post.mobile}} </mat-cell>  
+          </ng-container>  
+
+          <ng-container matColumnDef="gender">  
+              <mat-header-cell *matHeaderCellDef  mat-sort-header> Gender </mat-header-cell>  
+              <mat-cell *matCellDef="let post"> {{post.gender}} </mat-cell>  
+          </ng-container>  
+
+          <ng-container matColumnDef="age">  
+              <mat-header-cell *matHeaderCellDef  mat-sort-header> Age </mat-header-cell>  
+              <mat-cell *matCellDef="let post"> {{post.age}} </mat-cell>  
+          </ng-container>  
+
+        <ng-container matColumnDef="buttons">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+            <mat-cell *matCellDef="let post" style="display: block; word-wrap:normal;">
+                <a [routerLink]="['/adduser',post._id]" style="margin-left: 75%;">
+                    <strong>Edit</strong>
+                </a>
+                <br >
+                <a href = 'javascript:void(0)' (click)="onDel(post._id)" style="margin-left: 75%;">
+                    <strong>Delete</strong>
+                </a>
+            </mat-cell>
+        </ng-container>
+ 
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>  
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>  
+      </mat-table>  
+      <!-- To use pagination in DataTable  -->  
+  
+      <mat-paginator  #paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]">  
+        </mat-paginator>  
+  </div>  
+</mat-card>   
