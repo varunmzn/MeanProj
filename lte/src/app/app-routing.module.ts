@@ -11,7 +11,10 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AddUserComponent } from './user-master/add-user/add-user.component';
 import { ListUserComponent } from './user-master/list-user/list-user.component';
 import { CreateAssessComponent,ListAssessComponent } from './assessment';
+import { CreateSubjectComponent,ListSubjectComponent } from './subject';
+import { CreateQuestionComponent,ListQuestionComponent } from './question';
 import { AuthGuard } from './auth/auth.guard';
+import { MultiFilesUploadComponent } from './multi-files-upload/multi-files-upload.component';
 
 
 
@@ -255,7 +258,73 @@ const routes: Routes = [
     data: {
       layoutName: 'layoutOne'
     },
-  }
+  },
+  {
+    path: 'listsubject', component: ListSubjectComponent, canActivate: [AuthGuard],
+    children: [{ path: '', component: ListSubjectComponent }],
+    data: {
+      layoutName: 'layoutOne'
+    },
+  },
+  {
+    path: 'listsubject/:id', component: ListSubjectComponent, canActivate: [AuthGuard],
+    children: [{ path: '', component: ListSubjectComponent }],
+    data: {
+      layoutName: 'layoutOne'
+    },
+  },
+
+  {
+    path: 'addsubject', component: CreateSubjectComponent, canActivate: [AuthGuard],
+    children: [{ path: '', component: CreateSubjectComponent }],
+    data: {
+      layoutName: 'layoutOne'
+    },
+  },
+  {
+    path: 'addsubject/:id', component: CreateSubjectComponent, canActivate: [AuthGuard],
+    children: [{ path: '', component: CreateSubjectComponent }],
+    data: {
+      layoutName: 'layoutOne'
+    },
+  },
+  {
+    path: 'listquestion', component: ListQuestionComponent, canActivate: [AuthGuard],
+    children: [{ path: '', component: ListQuestionComponent }],
+    data: {
+      layoutName: 'layoutOne'
+    },
+  },
+  {
+    path: 'listquestion/:id', component: ListQuestionComponent, canActivate: [AuthGuard],
+    children: [{ path: '', component: ListQuestionComponent }],
+    data: {
+      layoutName: 'layoutOne'
+    },
+  },
+
+  {
+    path: 'addquestion', component: CreateQuestionComponent, canActivate: [AuthGuard],
+    children: [{ path: '', component: CreateQuestionComponent }],
+    data: {
+      layoutName: 'layoutOne'
+    },
+  },
+  {
+    path: 'addquestion/:id', component: CreateQuestionComponent, canActivate: [AuthGuard],
+    children: [{ path: '', component: CreateQuestionComponent }],
+    data: {
+      layoutName: 'layoutOne'
+    },
+  },
+  {
+    path: 'upload', component: MultiFilesUploadComponent, canActivate: [AuthGuard],
+    children: [{ path: '', component: MultiFilesUploadComponent }],
+    data: {
+      layoutName: 'layoutOne'
+    },
+  },
+  
     
 ];
 

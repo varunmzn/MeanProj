@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
-import { UsersService } from '../../services/users/users-service.service';
+import { AssessmentsService } from '../../services/assessments/assessments.service';
 import { MatSort } from '@angular/material';
 import { Router, ActivatedRoute, NavigationEnd } from "@angular/router";
 
@@ -15,18 +15,16 @@ import { Observable } from 'rxjs/Observable';
 export class ListAssessComponent implements OnInit, OnDestroy {
 
   MyDataSource: any;
-  displayedColumns = ['_id', 'firstName', 'lastName', 'email', 'password', 'mobile', 'gender', 'age', 'buttons'];
+  displayedColumns = ['_id', 'assessmentName', 'buttons'];
   navigationSubscription;
-  constructor(public UsersService: UsersService, private router: Router) {
-
+  constructor(public AssessmentsService: AssessmentsService, private router: Router) {
+ // to refresh the same component
     this.navigationSubscription = this.router.events.subscribe((e: any) => {
       // If it is a NavigationEnd event re-initalise the component
       if (e instanceof NavigationEnd) {
         this.initialiseInvites();
       }
     });
-
-
 
   }
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -37,9 +35,11 @@ export class ListAssessComponent implements OnInit, OnDestroy {
   }
 
   RenderDataTable() {
-    this.UsersService.listUsers()
+    this.AssessmentsService.listAssessments()
       .subscribe(
+ 
         res => {
+                 console.log(res);
           this.MyDataSource = new MatTableDataSource();
           this.MyDataSource.data = res;
           this.MyDataSource.sort = this.sort;
@@ -52,12 +52,12 @@ export class ListAssessComponent implements OnInit, OnDestroy {
   }
 
   onDel(id: number) {
-    this.UsersService.delUser(id).subscribe((result) => {
+    this.AssessmentsService.delAssessment(id).subscribe((result) => {
       //  console.log(result)
       alert("Deleted");
-      // this.router.navigate(['listuser']);
+      // this.router.navigate(['listassessment']);
     });
-    this.router.navigate(['listuser']);
+    this.router.navigate(['listassessment']);
   }
 
   initialiseInvites() {

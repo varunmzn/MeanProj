@@ -23,10 +23,13 @@ export const adminLteConf = {
         {label: 'Assessment', route: '/listassessment'},
       ]},
       {label: 'Subject  Management', iconClasses: 'fa fa-th-list', children: [
-        {label: 'Subject', route: 'layout/configuration'},
+        {label: 'Subject', route: '/listsubject'},
       ]},
       {label: 'Question  Management', iconClasses: 'fa fa-th-list', children: [
-        {label: 'Question', route: 'layout/configuration'},
+        {label: 'Question', route: '/listquestion'},
+      ]},
+      {label: 'File Upload Management', iconClasses: 'fa fa-th-list', children: [
+        {label: 'Upload', route: '/upload'},
       ]},
 ]},
 
@@ -41,9 +44,6 @@ export const adminLteConf = {
       {label: 'Assign To User', route: 'layout/configuration' },
     ]},
     
-
-
-
 
 ////////////////////////////////////////////////////////////////////////////////
 {label: '', separator: true},

@@ -18,7 +18,7 @@ var subjectsSchema = new mongoose.Schema({
 
 
 // save update time before update
-commentSchema.pre('update', function (next) {
+subjectsSchema.pre('update', function (next) {
     this.set('updatedAt', Date.now());
     return next();
   })

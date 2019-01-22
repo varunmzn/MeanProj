@@ -9,3 +9,4 @@ require('./user.model');
 require('./users.model');
 require('./assessments.model');
 require('./subjects.model');
+require('./questions.model');

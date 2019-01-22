@@ -6,6 +6,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const passport = require('passport');
+const morgan = require('morgan');
 
 const rtsIndex = require('./routes/index.router');
 

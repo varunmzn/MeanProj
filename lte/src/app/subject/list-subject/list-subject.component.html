@@ -1,0 +1,48 @@
+<mat-card>  
+  <div class="alert alert-info" style="width: 100%">  
+    <strong>Subject List</strong> 
+  
+      <a [routerLink]="['/addsubject']" style="margin-left: 75%;">
+        <strong>Add Subject</strong> 
+      </a>
+  
+     
+    
+  </div>  
+  <div  class="example-container mat-elevation-z8">  
+      <mat-table #Table [dataSource]="MyDataSource"  matSort>  
+
+          <ng-container matColumnDef="_id">  
+              <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>  
+              <mat-cell *matCellDef="let post"> {{post._id}} </mat-cell>  
+          </ng-container>  
+
+          <ng-container matColumnDef="subjectName">  
+              <mat-header-cell *matHeaderCellDef  mat-sort-header> Subject Name </mat-header-cell>  
+              <mat-cell *matCellDef="let post"> {{post.subjectName}} </mat-cell>  
+          </ng-container>  
+
+       
+
+        <ng-container matColumnDef="buttons">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+            <mat-cell *matCellDef="let post" style="display: block; word-wrap:normal;">
+                <a [routerLink]="['/adduser',post._id]" style="margin-left: 75%;">
+                    <strong>Edit</strong>
+                </a>
+                <br >
+                <a href = 'javascript:void(0)' (click)="onDel(post._id)" style="margin-left: 75%;">
+                    <strong>Delete</strong>
+                </a>
+            </mat-cell>
+        </ng-container>
+ 
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>  
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>  
+      </mat-table>  
+      <!-- To use pagination in DataTable  -->  
+  
+      <mat-paginator  #paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]">  
+        </mat-paginator>  
+  </div>  
+</mat-card>   

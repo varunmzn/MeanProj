@@ -25,7 +25,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 // import { SignInComponent } from './user/sign-in/sign-in.component';
 import { UserService } from './shared/user.service';
 import { UsersService } from './services/users/users-service.service';
-import { AssessmentService } from './services/assessments/assessment.service';
+import { AssessmentsService,SubjectsService ,QuestionsService  } from './services';
 
 //other
 import { AuthGuard } from './auth/auth.guard';
@@ -38,6 +38,13 @@ import { AddUserComponent } from './user-master/add-user/add-user.component';
 import { MatToolbarModule , MatMenuModule , MatInputModule , MatTableModule ,MatButtonModule,MatCardModule,MatTableDataSource,MatPaginatorModule,MatSortModule} from '@angular/material';  
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateAssessComponent,ListAssessComponent } from './assessment';
+import { CreateQuestionComponent } from './question/create-question/create-question.component';
+import { ListQuestionComponent } from './question/list-question/list-question.component';
+import { ListSubjectComponent } from './subject/list-subject/list-subject.component';
+import { CreateSubjectComponent } from './subject/create-subject/create-subject.component';
+
+import { CKEditorModule } from 'ngx-ckeditor';
+import { MultiFilesUploadComponent } from './multi-files-upload/multi-files-upload.component';
 
 
 @NgModule({
@@ -52,7 +59,8 @@ import { CreateAssessComponent,ListAssessComponent } from './assessment';
     HttpClientModule,
     BrowserAnimationsModule,  
     BrowserModule,  
-    MatToolbarModule , MatMenuModule , MatInputModule , MatTableModule ,MatButtonModule,MatCardModule,MatPaginatorModule,MatSortModule  
+    MatToolbarModule , MatMenuModule , MatInputModule , MatTableModule ,MatButtonModule,MatCardModule,MatPaginatorModule,MatSortModule,
+    CKEditorModule  
   ],  
   exports:[  
     MatToolbarModule , MatMenuModule , MatInputModule , MatTableModule ,MatButtonModule,MatCardModule,MatPaginatorModule,MatSortModule  
@@ -68,7 +76,12 @@ import { CreateAssessComponent,ListAssessComponent } from './assessment';
     ListUserComponent,
     AddUserComponent,
     CreateAssessComponent,
-    ListAssessComponent
+    ListAssessComponent,
+    CreateQuestionComponent,
+    ListQuestionComponent,
+    ListSubjectComponent,
+    CreateSubjectComponent,
+    MultiFilesUploadComponent
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
@@ -77,7 +90,9 @@ import { CreateAssessComponent,ListAssessComponent } from './assessment';
   },AuthGuard,
   UserService,
   UsersService,
-  AssessmentService
+  AssessmentsService,
+  SubjectsService ,
+  QuestionsService
 ],
   bootstrap: [AppComponent]
 })

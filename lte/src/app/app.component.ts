@@ -11,6 +11,7 @@ import { LayoutService } from 'angular-admin-lte';
 export class AppComponent implements OnInit {
   public customLayout: boolean;
   public layoutName: string;
+  public editorValue: string = '';
 
   constructor(
     private layoutService: LayoutService

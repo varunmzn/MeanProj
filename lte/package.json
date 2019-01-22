@@ -55,6 +55,7 @@
     "font-awesome": "^4.7.0",
     "ionicons": "^2.0.1",
     "jquery": "^1.9.1",
+    "ngx-ckeditor": "^0.4.0",
     "popper.js": "^1.14.6",
     "prismjs": "^1.8.4",
     "rollup": "^1.0.1",

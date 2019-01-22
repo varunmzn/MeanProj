@@ -18,7 +18,7 @@ var assessmentsSchema = new mongoose.Schema({
 
 
 // save update time before update
-commentSchema.pre('update', function (next) {
+assessmentsSchema.pre('update', function (next) {
     this.set('updatedAt', Date.now());
     return next();
   })
